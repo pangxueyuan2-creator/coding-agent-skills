@@ -1,85 +1,43 @@
 # coding-agent-skills
 
-**Ready-to-use skills, prompts and checklists for AI coding agents.**  
-Focused on security, testing, documentation, and safe workflows.  
-**Bilingual (English / 中文)** — designed for both global and Chinese developers.
+Copy-paste skills and checklists for AI coding agents (Cursor, Claude Code, Codex, etc.).
+Focus: security, testing, docs, and not skipping the boring checks.
+English and 中文 where it helps.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+MIT.
 
----
+## Why
 
-## Why this exists
+Agents often skip security review, leave weak tests, or ignore repo conventions.
+These files are short instructions you can drop into rules / AGENTS.md / system prompts.
 
-AI coding agents (Cursor, Claude Code, Windsurf, Codex, etc.) are powerful, but they often:
-- Skip security checks
-- Generate incomplete tests
-- Produce poor documentation
-- Ignore repository conventions
+## Quick start
 
-This repository gives you **copy-paste ready skills** and **checklists** you can drop into any agent system (Cursor rules, Claude projects, AGENTS.md, custom MCP, etc.).
+1. Copy a skill into your agent rules or project prompt.
+2. Or paste the checklist before asking for a change.
+3. Use the bilingual ones if the team or codebase mixes 中文 and English.
 
----
+## Skills
 
-## Quick Start
+| Skill | What it does | Lang |
+|-------|----------------|------|
+| [security-review](skills/security-review.md) | Security review for a change or PR | EN + 中文 |
+| [test-first](skills/test-first.md) | Push for tests before implementation | EN + 中文 |
+| [safe-refactor](skills/safe-refactor.md) | Safer large refactors with verification | EN |
+| [docs-and-readme](skills/docs-and-readme.md) | README / docs that stay honest | EN + 中文 |
+| [chinese-codebase](skills/chinese-codebase.md) | Notes for 中文 comments / local practices | 中文 |
+| [agent-self-check](skills/agent-self-check.md) | Quick self-check before claiming done | EN |
 
-1. Copy any skill file into your agent’s system prompt / rules / skills folder.
-2. Or reference the checklist before asking the agent to make changes.
-3. Prefer the bilingual versions if you work with Chinese teams or codebases.
+## Usage tips
 
----
+- Cursor / Claude Code: put the skill text in project rules.
+- AGENTS.md: paste under a clear heading.
+- Checklist mode: paste the list and say “follow this; don’t skip items.”
 
-## Available Skills
+## Related
 
-| Skill | Description | Language |
-|-------|-------------|----------|
-| [security-review](skills/security-review.md) | Systematic security review for PRs and code changes | EN + 中文 |
-| [test-first](skills/test-first.md) | Force test-driven thinking before writing implementation | EN + 中文 |
-| [safe-refactor](skills/safe-refactor.md) | Safe large-scale refactor with verification steps | EN |
-| [docs-and-readme](skills/docs-and-readme.md) | Generate high-quality README and docs | EN + 中文 |
-| [chinese-codebase](skills/chinese-codebase.md) | Special handling for Chinese comments, i18n and local practices | 中文 |
-| [agent-self-check](skills/agent-self-check.md) | Agent self-verification before finishing a task | EN |
+- [PatchWitness](https://github.com/pangxueyuan2-creator/patchwitness) — evidence for what a change actually did
+- [GuardSpec](https://github.com/pangxueyuan2-creator/guardspec) — preflight against explicit agent rules
+- [TaskToPR](https://github.com/pangxueyuan2-creator/tasktopr) — Issue → branch + tests + optional PR
 
----
-
-## Recommended Usage
-
-### Cursor / Claude Code / similar
-Add the content of a skill file into your project rules or system prompt.
-
-### AGENTS.md / custom agent
-Include the relevant skill sections under a clear heading.
-
-### Checklist mode
-Before asking the agent to implement something, paste the corresponding checklist and say:
-
-> Follow this checklist strictly. Do not skip any item.
-
----
-
-## Philosophy
-
-- **Security first** — every change should be reviewable and bounded
-- **Evidence over claims** — agents must show what they checked
-- **Human readable** — skills are written so both humans and agents can understand them
-- **Bilingual by design** — many Chinese developers use English tools; we support both
-
----
-
-## Contributing
-
-PRs are welcome. New skills should:
-- Be short and actionable
-- Include both English and Chinese when possible
-- Focus on real pain points of AI coding agents
-
----
-
-## Related Projects by the same author
-
-- [PatchWitness](https://github.com/pangxueyuan2-creator/patchwitness) — Independent trust gate for AI coding agents
-- [GuardSpec](https://github.com/pangxueyuan2-creator/guardspec) — Compile repository intent into enforceable agent boundaries
-- [TaskToPR](https://github.com/pangxueyuan2-creator/tasktopr) — Turn a GitHub Issue into a transparent, tested Pull Request
-
----
-
-Made with care for safer AI-assisted development.
+Issues and PRs welcome if a skill is unclear or missing something real.
