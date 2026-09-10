@@ -19,12 +19,23 @@ def markdown_files() -> list[Path]:
     return sorted(path for path in ROOT.rglob("*.md") if ".git" not in path.parts)
 
 
+def _markdown_link_destination(raw_target: str) -> str:
+    """Extract a Markdown link destination without treating spaces inside <...> as titles."""
+
+    target = raw_target.strip()
+    if target.startswith("<"):
+        closing = target.find(">")
+        if closing > 0:
+            return target[1:closing].strip()
+    return target.split(maxsplit=1)[0].strip("<>")
+
+
 def check_relative_links() -> list[str]:
     errors: list[str] = []
     for path in markdown_files():
         text = path.read_text(encoding="utf-8")
         for raw_target in MARKDOWN_LINK_RE.findall(text):
-            target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
+            target = _markdown_link_destination(raw_target)
             parsed = urlparse(target)
             if parsed.scheme or parsed.netloc or target.startswith("#"):
                 continue
