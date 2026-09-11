@@ -28,6 +28,9 @@ These files are short instructions you can drop into rules / AGENTS.md / system 
 | [chinese-codebase](skills/chinese-codebase.md) | Notes for 中文 comments / local practices | 中文 |
 | [agent-self-check](skills/agent-self-check.md) | Quick self-check before claiming done | EN |
 
+Enforcement: see [enforcement-map](skills/enforcement-map.md) — which parts are
+mechanically backed by PatchWitness / GuardSpec / TaskToPR and which are prompt-only.
+
 ## Usage tips
 
 - Cursor / Claude Code: put the skill text in project rules.
